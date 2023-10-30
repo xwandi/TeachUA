@@ -9,9 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 @Slf4j
 @DataJpaTest
+@Sql("/testdata/cities.sql")
 class CityRepositoryIT {
     private static final String EXISTING_NAME = "Одеса";
     private static final String NOT_EXISTING_NAME = "Івано-Франківськ";

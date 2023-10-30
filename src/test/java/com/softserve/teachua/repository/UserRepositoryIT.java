@@ -10,9 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 @Slf4j
 @DataJpaTest
+@Sql({"/testdata/roles.sql", "/testdata/users.sql"})
 class UserRepositoryIT {
     private static final String ADMIN_EMAIL = "admin@gmail.com";
     private static final String WRONG_EMAIL = "wrong@gmail.com";

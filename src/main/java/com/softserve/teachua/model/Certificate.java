@@ -2,7 +2,9 @@ package com.softserve.teachua.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.softserve.teachua.dto.marker.Convertible;
+
 import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -74,6 +76,6 @@ public class Certificate implements Convertible {
     @EqualsAndHashCode.Exclude
     private CertificateDates dates;
 
-    @Column(name = "`values`")
+    @Column
     private String values;
 }

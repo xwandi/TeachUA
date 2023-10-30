@@ -1,5 +1,6 @@
 package com.softserve.teachua.repository;
 
+import com.softserve.teachua.model.SearchStatistics;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -8,10 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.softserve.teachua.model.SearchStatistics;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 @DataJpaTest
+@Sql("/testdata/search_statistics.sql")
 class SearchStatisticsRepositoryTestIT {
 
     @Autowired

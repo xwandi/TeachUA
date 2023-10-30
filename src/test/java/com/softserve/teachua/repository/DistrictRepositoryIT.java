@@ -9,8 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 @DataJpaTest
+@Sql({"/testdata/cities.sql", "/testdata/districts.sql"})
 class DistrictRepositoryIT {
     private static final Long EXISTING_ID = 1L;
     private static final Long NOT_EXISTING_ID = 500L;

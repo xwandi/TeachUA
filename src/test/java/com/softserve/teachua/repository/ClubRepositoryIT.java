@@ -5,19 +5,25 @@ import com.softserve.teachua.model.Center;
 import com.softserve.teachua.model.Club;
 import com.softserve.teachua.repository.utils.club_test_data.ClubAdvancedSearchRepository;
 import com.softserve.teachua.repository.utils.club_test_data.ClubSearchTestEntity;
+
 import java.util.List;
 import java.util.Optional;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.test.context.jdbc.Sql;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
+@Sql({"/testdata/categories.sql", "/testdata/roles.sql", "/testdata/users.sql", "/testdata/centers.sql", "/testdata/cities.sql", "/testdata/stations.sql", "/testdata/clubs.sql",
+        "/testdata/districts.sql", "/testdata/locations.sql"})
 class ClubRepositoryIT {
     private static final Long EXISTING_ID = 1L;
     private static final Long NOT_EXISTING_ID = 500L;

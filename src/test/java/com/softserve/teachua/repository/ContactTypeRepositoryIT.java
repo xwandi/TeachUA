@@ -7,9 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 @Slf4j
 @DataJpaTest
+@Sql("/testdata/contact_types.sql")
 class ContactTypeRepositoryIT {
     private static final String EXISTING_NAME = "Телефон";
     private static final String NOT_EXISTING_NAME = "Telegram";

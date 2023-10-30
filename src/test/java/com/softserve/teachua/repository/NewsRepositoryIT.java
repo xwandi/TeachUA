@@ -1,13 +1,15 @@
 package com.softserve.teachua.repository;
 
 import lombok.extern.slf4j.Slf4j;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.springframework.test.context.jdbc.Sql;
 
 @Slf4j
 @DataJpaTest
+@Sql({"/testdata/roles.sql", "/testdata/users.sql", "/testdata/news.sql"})
 class NewsRepositoryIT {
     private static final String EXISTING_TITLE = "title1";
 

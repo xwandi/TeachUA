@@ -7,19 +7,23 @@ import com.softserve.teachua.exception.NotExistException;
 import com.softserve.teachua.model.Child;
 import com.softserve.teachua.model.User;
 import com.softserve.teachua.repository.ChildRepository;
+import com.softserve.teachua.repository.GenderRepository;
 import com.softserve.teachua.service.impl.ChildServiceImpl;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class ChildServiceImplTest {
@@ -29,7 +33,8 @@ class ChildServiceImplTest {
     private DtoConverter dtoConverter;
     @Mock
     private UserService userService;
-
+    @Mock
+    private GenderRepository genderRepository;
     @InjectMocks
     private ChildServiceImpl childService;
 

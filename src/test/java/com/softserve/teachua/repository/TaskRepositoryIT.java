@@ -2,18 +2,15 @@ package com.softserve.teachua.repository;
 
 import com.softserve.teachua.model.Challenge;
 import com.softserve.teachua.model.Task;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
 class TaskRepositoryIT {
@@ -30,16 +27,16 @@ class TaskRepositoryIT {
             .picture(TASK).challenge(challenge1).build();
     private final List<Task> tasksWithChallenge1Sorted = Arrays.asList(task1, task2);
     @Autowired
-    private TestEntityManager entityManager;
-    @Autowired
     private TaskRepository taskRepository;
+    @Autowired
+    private ChallengeRepository challengeRepository;
 
     @BeforeEach
     void setUp() {
-        entityManager.persist(challenge1);
-        entityManager.persist(challenge2);
-        entityManager.persist(task1);
-        entityManager.persist(task2);
+        challengeRepository.save(challenge1);
+        challengeRepository.save(challenge2);
+        taskRepository.save(task1);
+        taskRepository.save(task2);
     }
 
     @Test
